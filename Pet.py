@@ -1,14 +1,14 @@
 class Pet:
 
     # constructor
-    def __init__(self, name, species, breed, age, VetRecord):
+    def __init__(self, name, species, breed, age):
         self.id = None
         self.petName = name
         self.species = species
         self.breed = breed
         self.age = age
         self.Owner = None
-        self.VetRecord = VetRecord
+        self.VetRecord = None
 
     # getters
     def getId(self):
