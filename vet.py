@@ -21,6 +21,8 @@ class Vet:
             if self.petRecords[i].Owner.name == ownername:
                 return self.petRecords[i]
         return None
+    def displayVetRecord(self, Pet):
+        print("the pets vet record")
 
     def printRecord(self, Pet):
-        print()
+        print("the pets info")
