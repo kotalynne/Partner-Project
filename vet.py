@@ -4,9 +4,10 @@ class Vet:
         self.petRecords = []
 
     def displayPetRecords(self):
-        print("--------------------------------------------------------")
+
         for i in range(len(self.petRecords)):
             print(self.petRecords[i].toString())
+            print("--------------------------------------------------------")
 
     def addPetRecord(self, Pet):
         Pet.id = len(self.petRecords)

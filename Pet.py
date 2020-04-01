@@ -7,8 +7,10 @@ class Pet:
         self.species = species
         self.breed = breed
         self.age = age
-        self.Owner = None
+        self.Owner = Owner
         self.VetRecord = []
+        if Owner is not None:
+            Owner.adoptPet(self, Owner)
 
     # getters
     def getId(self):
@@ -30,6 +32,7 @@ class Pet:
         return self.Owner
 
     def getVetRecord(self):
+        print("Accessing vet Records for ", self.petName)
         for i in range(len(self.VetRecord)):
             print(self.VetRecord[i].toString())
             print("_______________________________________")
@@ -42,5 +45,8 @@ class Pet:
 
     # to string
     def toString(self):
+        if self.Owner is None:
+            return "Pet Information for: " + self.getPetName() + "\nID: " + str(self.getId()) + "\nAge: " + str(
+                self.getAge()) + "\nOwner: " + str(self.getOwner()) + self.VetRecord[-1].toString()
         return "Pet Information for: " + self.getPetName() + "\nID: " + str(self.getId()) + "\nAge: " + str(
-            self.getAge()) + "\nOwner: " + str(self.getOwner()) + self.VetRecord[-1].toString()
+            self.getAge()) + "\nOwner: " + str(self.getOwner().ownerName) + self.VetRecord[-1].toString()

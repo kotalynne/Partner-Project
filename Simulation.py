@@ -9,6 +9,7 @@ class Simulation:
 
     def run(self):
         # display vet record!
+        print("Displaying current Pet record \n_________________________________________________")
         lisa = Owner("Lisa", "1 Street St, Burlington VT", 8021234567)
         fifi = Pet("Fifi", "Feline", "Persian", 2, lisa)
         fifi.addVetRecord(VetRecord("1st January 2020", " In 6 months", "Dr.DoLittle", "Threw up food"))
@@ -19,12 +20,11 @@ class Simulation:
         else:
             self.vet.displayPetRecords()
 
-        print("----------------------------------------------------------------------------------------------")
-        print("Found a kitten for adoption")
+        print("Took in a kitten up for adoption")
         dracula = Pet("Dracula", "Feline", "Domestic Shorthair", 4)
         self.vet.addPetRecord(dracula)
         dracula.addVetRecord(VetRecord("4th April 2020", "In one month", "Dr.DoLittle", "check-up"))
-        print("Found a stray pug  \n Displaying pet records now")
+        print("Found a stray pug  \n \nDisplaying pet records now")
         fluffy = Pet("Fluffy", "Canine", "Pug", 2)
         self.vet.addPetRecord(fluffy)
         fluffy.addVetRecord(VetRecord("4th April 2020", "In one month", "Dr.Nancy", "General check-up"))
@@ -34,7 +34,7 @@ class Simulation:
         else:
             self.vet.displayPetRecords()
 
-        print("Lisa comes in with her cat Fifi for a visit \nAccessing the pet record")
+        print("Lisa comes in with her cat Fifi for a visit ")
         if self.vet.findPet("Fifi") == None:
             print("Cannot find pet record. Does not exist in database")
         else:
@@ -43,9 +43,9 @@ class Simulation:
         #setting pet record for today's visit
         fifi.addVetRecord(VetRecord("04th April 2020", " In 6 months", "Dr.DoLittle", "Check-Up"))
 
-        print("Lisa adopts dracula")
+        print("\nLisa adopts dracula")
         lisa.adoptPet(dracula, lisa)
-        print("Lisa adopts fluffy")
+        print("Lisa adopts fluffy\n")
         lisa.adoptPet(fluffy, lisa)
 
 
