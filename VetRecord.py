@@ -1,8 +1,9 @@
 class VetRecord:
-    def __init__(self, todayDate, nextVisit, vet):
-        self.lastVisit = todayDate
+    def __init__(self, lastVist, nextVisit, vetName, reason):
+        self.lastVisit = lastVist
         self.nextVisit = nextVisit
-        self.vet = vet
+        self.vetName = vetName
+        self.reasonForVisit = reason
 
     def getNextVisit(self):
         return self.nextVisit
@@ -11,21 +12,14 @@ class VetRecord:
         return self.lastVisit
 
     def getVetName(self):
-        return self.vet
+        return self.vetName
 
     def getReason(self):
         return self.reasonForVisit
 
-    def setNextVisit(self, nextVisit):
-        self.nextVisit = nextVisit
 
-    def setLastVisit(self, todayDate):
-        self.lastVisit = todayDate
 
-    def reasonForVisit(self, reason):
-        self.reasonForVisit = reason
-
-    def setVetName(self, vetName):
-        self.vet = vetName
+    def toString(self):
+        return "\nLast visit to vet: " + self.getVetName() + ", " + self.getLastVisit() + ", " + self.getReason() +"\nNext visit: " + self.getNextVisit()
 
 

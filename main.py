@@ -1,10 +1,10 @@
-import vet
-import Simulation
+from vet import Vet
+from Simulation import Simulation
 
 def main():
-    initialize = vet.Vet()
+    initialize = Vet()
 
-    visit = Simulation.Simulation(initialize)
-    visit.run()
+    sim = Simulation(initialize)
+    sim.run()
 
 main()

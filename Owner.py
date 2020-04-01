@@ -19,11 +19,11 @@ class Owner:
 
     def getPets(self):
         for i in range(len(self.pets)):
-            temp = self.pets[i]
-            print(temp.getPetName(), end = ", ")
+            print(self.pets[i].petName)
+        return len(self.pets)
 
     # others
     def adoptPet(self, Pet, Owner):
         self.pets.append(Pet)
-        Pet.Owner = Owner;
+        Pet.Owner = Owner
 

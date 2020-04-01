@@ -2,57 +2,56 @@ from Pet import Pet
 from Owner import Owner
 from VetRecord import VetRecord
 
+
 class Simulation:
     def __init__(self, vet):
         self.vet = vet
 
     def run(self):
+        # display vet record!
         lisa = Owner("Lisa", "1 Street St, Burlington VT", 8021234567)
-        dracula = Pet("Dracula","Feline","Domestic Shorthair",4)
+        fifi = Pet("Fifi", "Feline", "Persian", 2, lisa)
+        fifi.addVetRecord(VetRecord("1st January 2020", " In 6 months", "Dr.DoLittle", "Threw up food"))
+        fifi.addVetRecord(VetRecord("2nd March 2020", " In 1 month", "Dr.DoLittle", "Ate trash"))
+        self.vet.addPetRecord(fifi)
+        if (len(self.vet.petRecords)) == 0:
+            print("There is no pet record to show")
+        else:
+            self.vet.displayPetRecords()
+
+        print("----------------------------------------------------------------------------------------------")
+        print("Found a kitten for adoption")
+        dracula = Pet("Dracula", "Feline", "Domestic Shorthair", 4)
         self.vet.addPetRecord(dracula)
-        lisa.adoptPet(dracula, lisa)
-        print("\n" + dracula.getPetName() + " is owned by " + dracula.getOwner().getOwnerName())
-        firstVisit = VetRecord("03/31/2020","04/11/2021","Dr. Dolittle")
-        firstVisit.reasonForVisit(dracula.getPetName() + " had a routine visit.")
-        dracula.setVetRecord(firstVisit)
-        thisVisit = VetRecord("04/03/2020","04/11/2020","Dr. Dolittle")
-        thisVisit.reasonForVisit(dracula.getPetName() + " was looking a little under the weather.")
-        dracula.setVetRecord(thisVisit)
-        print("Thank you for visiting today, " + dracula.getPetName() + "!")
-        print("Vet Record for: " + lisa.getOwnerName())
-        print("Today's Visit: " + thisVisit.getLastVisit())
-        print("Scheduled Follow-Up: " + thisVisit.getNextVisit())
-        print("Reason for Visit: " + thisVisit.getReason())
-        print("--------------------------------------------------------")
-
-        print("The Vet Record is currently as follows: ")
-        self.vet.displayPetRecords()
-
-        fluffy = Pet("Fluffy","Canine","Pug",2)
-        jeff = Pet("Jeff","Feline","Domestic Shorthair", 3)
-
-        lisa.adoptPet(fluffy, lisa)
+        dracula.addVetRecord(VetRecord("4th April 2020", "In one month", "Dr.DoLittle", "check-up"))
+        print("Found a stray pug  \n Displaying pet records now")
+        fluffy = Pet("Fluffy", "Canine", "Pug", 2)
         self.vet.addPetRecord(fluffy)
-        lisa.adoptPet(jeff, lisa)
-        self.vet.addPetRecord(jeff)
-        print("Lisa is trying to schedule another visit for her one of her cats.")
-        print("Lisa owns the following pets: ")
-        lisa.getPets()
-        print("\n")
+        fluffy.addVetRecord(VetRecord("4th April 2020", "In one month", "Dr.Nancy", "General check-up"))
+        # display vet record!
+        if (len(self.vet.petRecords)) == 0:
+            print("There is no pet record to show")
+        else:
+            self.vet.displayPetRecords()
 
-        fluffyVisit = VetRecord("04/01/2020", "04/01/2022", "Professor McGonagall")
-        fluffyVisit.reasonForVisit(fluffy.getPetName() + " had a slight limp.")
-        fluffy.setVetRecord(fluffyVisit)
+        print("Lisa comes in with her cat Fifi for a visit \nAccessing the pet record")
+        if self.vet.findPet("Fifi") == None:
+            print("Cannot find pet record. Does not exist in database")
+        else:
+            self.vet.findPet("Fifi").getVetRecord()
 
-        print("Thank you for visiting today, " + fluffy.getPetName() + "!")
-        print("Vet Record for: " + lisa.getOwnerName())
-        print("Today's Visit: " + fluffyVisit.getLastVisit())
-        print("Scheduled Follow-Up: " + fluffyVisit.getNextVisit())
-        print("Reason for Visit: " + fluffyVisit.getReason())
-        print("--------------------------------------------------------")
+        #setting pet record for today's visit
+        fifi.addVetRecord(VetRecord("04th April 2020", " In 6 months", "Dr.DoLittle", "Check-Up"))
+
+        print("Lisa adopts dracula")
+        lisa.adoptPet(dracula, lisa)
+        print("Lisa adopts fluffy")
+        lisa.adoptPet(fluffy, lisa)
 
 
-
-
-
+        print("Displaying Lisa's pets")
+        if len(lisa.pets) == 0:
+            print("Lisa has no pets to show")
+        else:
+            lisa.getPets()
 
