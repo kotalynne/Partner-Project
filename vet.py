@@ -3,7 +3,7 @@ class Vet:
         self.petRecords = []
 
     def displayPetRecords(self):
-        for i in self.petRecords:
+        for i in range(len(self.petRecords)):
             print(self.printRecord(self.petRecords[i]))
 
     def addPetRecord(self, Pet):
@@ -12,17 +12,19 @@ class Vet:
 
     def findPet(self, petName):
         for i in self.petRecords:
-            if self.petRecords[i].name == petName:
+            if self.petRecords[i].petName == petName:
                 return self.petRecords[i]
         return None
 
-    def findOwner(self, ownername):
+    def findOwner(self, ownerName):
         for i in self.petRecords:
-            if self.petRecords[i].Owner.name == ownername:
+            if self.petRecords[i].Owner.ownerName == ownerName:
                 return self.petRecords[i]
         return None
+
     def displayVetRecord(self, Pet):
-        print("the pets vet record")
+        print("Pet\'s Vet Record:" )
 
     def printRecord(self, Pet):
-        print("the pets info")
+        print("Pet\'s Name: " + Pet.getPetName() + ", Age: " + str(Pet.getAge())) + ", Date of Last Visit: " + Pet.VetRecord.getLastVisit() #+ ", Date of Next Visit: "
+             # + Pet.VetRecord.getNextVisit() + ", Vet: " + Pet.VetRecord.getVetName())

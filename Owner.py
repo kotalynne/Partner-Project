@@ -9,15 +9,20 @@ class Owner:
 
     # getters
     def getOwnerName(self):
-        return self.OwnerName
+        return self.ownerName
+
     def getAddress(self):
-        return self.Address
-    def getPet(self):
-        return self.Pet
+        return self.address
+
     def getPhone(self):
         return self.phone
 
+    def getPets(self):
+        for i in range(len(self.pets)):
+            temp = self.pets[i]
+            print(temp.getPetName(), end = ", ")
+
     # others
     def adoptPet(self, Pet):
-        self.pets.append(self, Pet)
+        self.pets.append(Pet)
 
