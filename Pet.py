@@ -8,7 +8,7 @@ class Pet:
         self.breed = breed
         self.age = age
         self.Owner = None
-        self.VetRecord = None
+        self.VetRecord = []
 
     # getters
     def getId(self):
@@ -33,5 +33,5 @@ class Pet:
         return self.VetRecord
 
     def setVetRecord(self, VetRecord):
-        self.VetRecord = VetRecord
+        self.VetRecord.append(VetRecord)
 

@@ -23,6 +23,7 @@ class Owner:
             print(temp.getPetName(), end = ", ")
 
     # others
-    def adoptPet(self, Pet):
+    def adoptPet(self, Pet, Owner):
         self.pets.append(Pet)
+        Pet.Owner = Owner;
 
