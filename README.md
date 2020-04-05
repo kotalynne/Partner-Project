@@ -2,6 +2,7 @@
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Going to the Vet
 Our project was creating a Vet simulator: a user is able to bring a pet to the vet, register the pet, view the pet record, adopt pets and more.  
+  
 For this project, we created the following classes:
 - Vet
 - VetRecord
